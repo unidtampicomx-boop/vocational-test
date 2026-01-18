@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Vocacional UNID</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="main-wrapper">
+        
+        <header class="test-header">
+            <div class="brand-container">
+                <h2 class="brand-title">TEST VOCACIONAL</h2>
+                <span class="brand-subtitle">UNID CAMPUS TAMPICO</span>
+            </div>
+            <img src="assets/images/unid-main-logo.svg" alt="UNID" class="unid-logo" onerror="this.style.display='none'"> 
+        </header>
+
+        <section id="view-landing" class="view-section active">
+            <div class="test-hero">
+                <h1>¿CUÁL ES TU CAMINO?</h1>
+                <p>Descubre tu carrera ideal para un futuro exitoso.</p>
+                <div class="cta-container">
+                    <button id="btnStart" class="btn-primary-gold">¡INICIA EL TEST!</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-info" class="view-section hidden">
+            <div class="info-container">
+                <h2>Información General</h2>
+                <p class="info-desc">Completa tus datos para comenzar.</p>
+                <form id="studentForm">
+                    <div class="form-group"><label>NOMBRE (S): *</label><input type="text" name="name" class="input-line" required></div>
+                    <div class="form-group"><label>APELLIDOS: *</label><input type="text" name="lastName" class="input-line" required></div>
+                    <div class="form-group"><label>CORREO: *</label><input type="email" name="email" class="input-line" required></div>
+                    <div class="form-group"><label>TELÉFONO: *</label><input type="tel" name="phone" class="input-line" required></div>
+                    <div class="form-group"><label>ESCUELA: *</label><input type="text" name="school" class="input-line" required></div>
+                    <div class="form-group"><label>GRUPO: *</label><input type="text" name="group" class="input-line" required></div>
+                    <div class="form-group">
+                        <label>¿MEJORAR INGLÉS? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label"><input type="radio" name="improveEnglish" value="true" required> SI</label>
+                            <label class="radio-label"><input type="radio" name="improveEnglish" value="false"> NO</label>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary-gold">Continuar</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <section id="view-test" class="view-section hidden">
+            <div class="test-container">
+                <div id="section-header" class="section-header">
+                    <h2 id="section-title">Título</h2>
+                    <div id="section-desc" class="section-desc">Desc</div>
+                </div>
+                <div id="questions-container" class="questions-grid"></div>
+                
+                <div class="navigation-controls">
+                    <button id="btnPrev" class="btn-nav hidden">Anterior</button>
+                    <button id="btnNext" class="btn-nav">Siguiente</button>
+                    <button id="btnFinish" class="btn-finish hidden">
+                        <span>Finalizar Test</span>
+                        <div class="spinner" id="loadingSpinner"></div>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-results" class="view-section hidden">
+            <div class="results-container">
+                
+                <header class="text-center mb-5">
+                    <h1>PERFIL VOCACIONAL</h1>
+                    <p style="color: #ccc;">Estos son los resultados de tu test</p>
+                </header>
+
+                <div id="winner-injection"></div>
+
+                <div class="chart-section mt-5">
+                    <h3>Detalle Completo</h3>
+                    <div id="chart-injection" class="chart-container">
+                        </div>
+                </div>
+
+                <div class="actions text-center mt-5 no-print">
+                    <button id="btnPrint" class="btn-print">
+                        <i class="bi bi-printer"></i> Imprimir / Guardar PDF
+                    </button>
+                    <br><br>
+                    <button onclick="location.reload()" class="btn-text">Volver al Inicio</button>
+                </div>
+
+            </div>
+        </section>
+
+        <footer class="test-footer">
+            <div class="footer-content">
+                <img src="assets/images/unid-secondary.svg" alt="UNID" class="footer-logo" onerror="this.style.display='none'">
+                <span>Campus, Tampico.</span>
+            </div>
+            <img src="assets/images/talisis.svg" alt="Talisis" class="talisis-logo" onerror="this.style.display='none'">
+        </footer>
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

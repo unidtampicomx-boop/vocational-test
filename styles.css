@@ -1,0 +1,164 @@
+/* --- VARIABLES & BASE --- */
+:root {
+    --unid-dark-blue: #0f1c30;
+    --unid-gold: #ffb700;
+    --unid-gold-hover: #e0a100;
+    --unid-white: #ffffff;
+    --unid-light-text: #e0e0e0;
+    --font-main: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0; padding: 0;
+    font-family: var(--font-main);
+    background-color: var(--unid-dark-blue);
+    background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+    color: var(--unid-white);
+    min-height: 100vh;
+}
+
+.main-wrapper {
+    display: flex; flex-direction: column;
+    min-height: 100vh;
+    padding: 2rem 3rem;
+    box-sizing: border-box;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* --- UTILIDADES SPA --- */
+.hidden { display: none !important; }
+.active { display: block !important; animation: fadeIn 0.5s ease; }
+.text-center { text-align: center; }
+.mb-5 { margin-bottom: 3rem; }
+.mt-5 { margin-top: 3rem; }
+.mt-4 { margin-top: 1.5rem; }
+.mb-4 { margin-bottom: 1.5rem; }
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* --- HEADER & HERO --- */
+.test-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 2rem; }
+.brand-title { font-weight: 800; font-size: 2.5rem; margin: 0; line-height: 1; text-transform: uppercase; }
+.brand-subtitle { background-color: var(--unid-gold); color: var(--unid-dark-blue); padding: 0.3rem 0.8rem; border-radius: 4px; font-weight: 700; font-size: 0.85rem; display: inline-block; margin-top: 8px; }
+.unid-logo { height: 40px; }
+.test-hero { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; margin-top: 2rem; }
+.test-hero h1 { font-size: 4rem; margin-bottom: 1rem; }
+.test-hero p { font-size: 1.3rem; color: var(--unid-light-text); }
+
+/* --- FORMULARIO --- */
+.info-container { max-width: 800px; margin: 0 auto; width: 100%; }
+.input-line { width: 100%; padding: 10px 0; background: transparent; border: none; border-bottom: 2px solid var(--unid-gold); color: white; font-size: 1.2rem; }
+.input-line:focus { outline: none; border-bottom-color: white; }
+.btn-primary-gold { background-color: var(--unid-gold); color: var(--unid-dark-blue); font-weight: 800; padding: 1rem 3rem; font-size: 1.2rem; border: none; border-radius: 8px; cursor: pointer; text-transform: uppercase; margin-top: 20px;}
+.btn-text { background: none; border: none; color: #ccc; text-decoration: underline; cursor: pointer; }
+
+/* --- TEST --- */
+.section-header { margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 20px; }
+#section-title { color: var(--unid-gold); font-size: 1.8rem; margin-bottom: 10px; }
+.section-desc { font-size: 1rem; line-height: 1.6; color: var(--unid-light-text); }
+.questions-grid { display: flex; flex-direction: column; gap: 20px; margin-bottom: 40px; }
+.question-item { background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 10px; border-left: 4px solid var(--unid-gold); }
+.question-text { font-size: 1.1rem; margin-bottom: 15px; display: block; }
+.scale-options { display: flex; gap: 15px; flex-wrap: wrap; }
+.scale-label { display: flex; flex-direction: column; align-items: center; cursor: pointer; position: relative; }
+.scale-label input { position: absolute; opacity: 0; cursor: pointer; }
+.scale-circle { width: 40px; height: 40px; border-radius: 50%; border: 2px solid var(--unid-gold); display: flex; justify-content: center; align-items: center; font-weight: bold; transition: all 0.2s; color: var(--unid-white); }
+.scale-label input:checked ~ .scale-circle { background-color: var(--unid-gold); color: var(--unid-dark-blue); transform: scale(1.1); }
+.navigation-controls { display: flex; justify-content: space-between; margin-top: 20px; padding-bottom: 40px;}
+.btn-nav { background: transparent; border: 2px solid var(--unid-gold); color: var(--unid-gold); padding: 10px 30px; font-weight: bold; border-radius: 50px; cursor: pointer; transition: 0.3s; }
+.btn-nav:hover { background: var(--unid-gold); color: var(--unid-dark-blue); }
+.btn-finish { background: #28a745; border: none; color: white; padding: 12px 40px; font-weight: bold; border-radius: 50px; cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; }
+.spinner { width: 20px; height: 20px; border: 3px solid rgba(255,255,255,0.3); border-radius: 50%; border-top-color: #fff; animation: spin 1s infinite; margin-left: 10px; display: none; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* --- RESULTADOS (Estilos Portados) --- */
+.results-container { max-width: 900px; margin: 0 auto; padding: 1rem; color: var(--unid-white); }
+
+/* Tarjeta Ganador */
+.winner-card {
+    background: linear-gradient(135deg, var(--unid-dark-blue) 0%, #1a2b49 100%);
+    border: 4px solid var(--unid-gold);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    margin-bottom: 3rem;
+}
+.icon-trophy { font-size: 4rem; margin-bottom: 1rem; }
+.winner-card h3 { font-size: 1rem; color: var(--unid-light-text); letter-spacing: 2px; margin-bottom: 0.5rem; }
+.winner-title { font-size: 2.5rem; color: var(--unid-gold); font-weight: 800; margin-bottom: 1rem; text-transform: uppercase; line-height: 1.2; }
+.winner-desc { font-size: 1.1rem; max-width: 600px; margin: 0 auto 2rem auto; line-height: 1.6; }
+.score-badge { background-color: var(--unid-gold); color: var(--unid-dark-blue); display: inline-block; padding: 0.5rem 1.5rem; border-radius: 50px; font-weight: 800; font-size: 1.2rem; }
+
+/* Carreras Sugeridas */
+.careers-suggestion {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+.careers-suggestion h4 { color: var(--unid-gold); font-size: 1.1rem; margin-bottom: 1rem; text-transform: uppercase; font-weight: 700; }
+.careers-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+.careers-list li {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.95rem;
+    display: flex; align-items: center; gap: 0.5rem;
+}
+.careers-list li i { color: var(--unid-gold); }
+
+/* Gráfica de Barras */
+.chart-section { background-color: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 2rem; }
+.chart-section h3 { border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 1rem; margin-bottom: 1.5rem; }
+.chart-row { margin-bottom: 1.2rem; }
+.chart-label { margin-bottom: 0.3rem; font-size: 0.95rem; }
+.chart-label strong { color: var(--unid-gold); }
+.bar-wrapper { background-color: rgba(255, 255, 255, 0.1); border-radius: 10px; height: 25px; overflow: hidden; width: 100%; }
+.bar-fill {
+    background-color: var(--unid-gold);
+    height: 100%;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: flex-end;
+    padding-right: 10px;
+    min-width: 10%;
+    transition: width 1s ease-in-out;
+}
+.bar-value { color: var(--unid-dark-blue); font-weight: 800; font-size: 0.85rem; }
+
+/* Botón Imprimir */
+.btn-print {
+    background-color: transparent; border: 2px solid var(--unid-white); color: var(--unid-white);
+    padding: 0.8rem 2rem; border-radius: 5px; cursor: pointer; transition: all 0.3s; font-size: 1rem;
+}
+.btn-print:hover { background-color: var(--unid-white); color: var(--unid-dark-blue); }
+
+/* --- IMPRESIÓN --- */
+@media print {
+    .no-print { display: none !important; }
+    .results-container { color: black; max-width: 100%; }
+    .winner-card {
+        border: 2px solid black; color: black; background: white; box-shadow: none;
+        page-break-inside: avoid;
+    }
+    .winner-title { color: black; }
+    .score-badge { border: 1px solid black; background-color: #ddd; color: black; }
+    .careers-list li { color: black; border: 1px solid #ccc; }
+    .bar-wrapper { background-color: #eee !important; border: 1px solid #ccc; }
+    .bar-fill { 
+        background-color: #666 !important; 
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .chart-label strong { color: black; }
+    .test-footer { display: none; }
+    body { background: white; color: black; }
+    .main-wrapper { padding: 0; }
+}
+
+/* Footer */
+.test-footer { margin-top: auto; display: flex; justify-content: space-between; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1); }
+.footer-logo, .talisis-logo { height: 25px; opacity: 0.8; }
