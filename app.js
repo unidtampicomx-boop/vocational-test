@@ -1,5 +1,6 @@
 // --- CONFIGURACIÓN ---
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwNmQ67ZpBOhh3J9Ig-6VQqk5TnPkFDxPUFPWPO1wRtbm0RA4zPOO9dZr_3wgA5o53fGQ/exec';
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxsv8iNvgsX2CnNR2aKoToaYy_XrUg6vYuVwnG5aov-RwsXk_21djP5x9Oj2Nll8SD-/exec';
+//const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwNmQ67ZpBOhh3J9Ig-6VQqk5TnPkFDxPUFPWPO1wRtbm0RA4zPOO9dZr_3wgA5o53fGQ/exec';
 
 // DATA COMPLETA (Orden importante: 0 a 9 según el algoritmo)
 const VOCATIONAL_CATEGORIES = [
@@ -274,4 +275,5 @@ document.addEventListener('DOMContentLoaded', () => {
         `).join('');
         document.getElementById('chart-injection').innerHTML = chartHTML;
     }
+
 });
