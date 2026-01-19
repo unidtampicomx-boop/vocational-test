@@ -23,33 +23,36 @@
         <section id="view-landing" class="view-section active">
             <div class="test-hero">
                 <h1>¿CUÁL ES TU CAMINO?</h1>
-                <p>Descubre tu carrera ideal para un futuro exitoso.</p>
+                <p>Descubre tu carrera ideal y construye el futuro que imaginas con nosotros.</p>
                 <div class="cta-container">
-                    <button id="btnStart" class="btn-primary-gold">¡INICIA EL TEST!</button>
+                    <button id="btnStart" class="btn-primary-gold">¡INICIA EL TEST AHORA!</button>
                 </div>
             </div>
         </section>
 
         <section id="view-info" class="view-section hidden">
             <div class="info-container">
-                <h2>Información General</h2>
-                <p class="info-desc">Completa tus datos para comenzar.</p>
+                <h2>Información del Alumno</h2>
+                <p class="info-desc">Por favor, completa tus datos para iniciar la evaluación.</p>
                 <form id="studentForm">
-                    <div class="form-group"><label>NOMBRE (S): *</label><input type="text" name="name" class="input-line" required></div>
-                    <div class="form-group"><label>APELLIDOS: *</label><input type="text" name="lastName" class="input-line" required></div>
-                    <div class="form-group"><label>CORREO: *</label><input type="email" name="email" class="input-line" required></div>
-                    <div class="form-group"><label>TELÉFONO: *</label><input type="tel" name="phone" class="input-line" required></div>
-                    <div class="form-group"><label>ESCUELA: *</label><input type="text" name="school" class="input-line" required></div>
-                    <div class="form-group"><label>GRUPO: *</label><input type="text" name="group" class="input-line" required></div>
+                    <div class="form-group"><label>NOMBRE (S) *</label><input type="text" name="name" class="input-line" placeholder="Tu nombre" required></div>
+                    <div class="form-group"><label>APELLIDOS *</label><input type="text" name="lastName" class="input-line" placeholder="Tus apellidos" required></div>
+                    <div class="form-group"><label>CORREO ELECTRÓNICO *</label><input type="email" name="email" class="input-line" placeholder="ejemplo@correo.com" required></div>
+                    <div class="form-group"><label>TELÉFONO *</label><input type="tel" name="phone" class="input-line" placeholder="10 dígitos" required></div>
+                    <div class="form-group"><label>ESCUELA DE PROCEDENCIA *</label><input type="text" name="school" class="input-line" required></div>
+                    <div class="form-group"><label>GRUPO *</label><input type="text" name="group" class="input-line" required></div>
+                    
                     <div class="form-group">
-                        <label>¿MEJORAR INGLÉS? *</label>
+                        <label>¿TE GUSTARÍA MEJORAR TU INGLÉS? *</label>
                         <div class="radio-group">
                             <label class="radio-label"><input type="radio" name="improveEnglish" value="true" required> SI</label>
                             <label class="radio-label"><input type="radio" name="improveEnglish" value="false"> NO</label>
                         </div>
                     </div>
-                    <div class="form-actions">
-                        <button type="submit" class="btn-primary-gold">Continuar</button>
+                    
+                    <div class="form-actions text-center">
+                        <button type="submit" class="btn-primary-gold" style="width: 100%;">Comenzar Test</button>
+                        <button type="button" class="btn-text" onclick="location.reload()">Cancelar</button>
                     </div>
                 </form>
             </div>
@@ -59,7 +62,7 @@
             <div class="test-container">
                 <div id="section-header" class="section-header">
                     <h2 id="section-title">Título</h2>
-                    <div id="section-desc" class="section-desc">Desc</div>
+                    <div id="section-desc" class="section-desc">Descripción</div>
                 </div>
                 <div id="questions-container" class="questions-grid"></div>
                 
@@ -79,20 +82,19 @@
                 
                 <header class="text-center mb-5">
                     <h1>PERFIL VOCACIONAL</h1>
-                    <p style="color: #ccc;">Estos son los resultados de tu test</p>
+                    <p style="opacity: 0.7;">Resultado del análisis de tus intereses y habilidades</p>
                 </header>
 
                 <div id="winner-injection"></div>
 
                 <div class="chart-section mt-5">
-                    <h3>Detalle Completo</h3>
-                    <div id="chart-injection" class="chart-container">
-                        </div>
+                    <h3>Detalle Completo por Área</h3>
+                    <div id="chart-injection" class="chart-container"></div>
                 </div>
 
                 <div class="actions text-center mt-5 no-print">
                     <button id="btnPrint" class="btn-print">
-                        <i class="bi bi-printer"></i> Imprimir / Guardar PDF
+                        <i class="bi bi-printer"></i> Imprimir Resultados
                     </button>
                     <br><br>
                     <button onclick="location.reload()" class="btn-text">Volver al Inicio</button>
@@ -104,7 +106,7 @@
         <footer class="test-footer">
             <div class="footer-content">
                 <img src="assets/images/unid-secondary.svg" alt="UNID" class="footer-logo" onerror="this.style.display='none'">
-                <span>Campus, Tampico.</span>
+                <span>Campus Tampico &copy; 2026</span>
             </div>
             <img src="assets/images/talisis.svg" alt="Talisis" class="talisis-logo" onerror="this.style.display='none'">
         </footer>
