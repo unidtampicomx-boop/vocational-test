@@ -1,7 +1,5 @@
 // --- CONFIGURACIÓN ---
-// const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxsv8iNvgsX2CnNR2aKoToaYy_XrUg6vYuVwnG5aov-RwsXk_21djP5x9Oj2Nll8SD-/exec';
 const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzpIRLXNS1zwiKZRgysfyAZuGfYbF7tv3RLUJxmUhql_I36yJ3D8D742CtEsOhKK26R/exec';
-//const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwNmQ67ZpBOhh3J9Ig-6VQqk5TnPkFDxPUFPWPO1wRtbm0RA4zPOO9dZr_3wgA5o53fGQ/exec';
 
 // DATA COMPLETA (Orden importante: 0 a 9 según el algoritmo)
 const VOCATIONAL_CATEGORIES = [
@@ -301,10 +299,11 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('btnFinish').addEventListener('click', finishTest);
     document.getElementById('btnPrint').addEventListener('click', () => window.print());
 
-    // 4. FINALIZAR Y RESULTADOS
+    // 4. FINALIZAR Y RESULTADOS (CON OVERLAY)
     function finishTest() {
-        const spinner = document.getElementById('loadingSpinner');
-        spinner.style.display = 'block';
+        // Mostrar Overlay
+        const overlay = document.getElementById('loadingOverlay');
+        overlay.classList.remove('hidden');
 
         // Calcular
         const scores = calculateResults(state.answers);
@@ -320,7 +319,8 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .finally(() => {
             renderResults(scores, winner);
-            spinner.style.display = 'none';
+            // Ocultar Overlay
+            overlay.classList.add('hidden');
             switchView('results');
         });
     }
@@ -348,6 +348,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 5. RENDERIZADO HTML DE RESULTADOS
     function renderResults(scores, winner) {
+        
         // A) Tarjeta Ganador
         const winnerHTML = `
             <div class="winner-card">
@@ -367,19 +368,25 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         document.getElementById('winner-injection').innerHTML = winnerHTML;
 
-        // B) Gráfica de Barras
+        // B) Gráfica de Barras (NUMEROS ARREGLADOS)
         const chartHTML = scores.map(item => `
             <div class="chart-row">
                 <div class="chart-label">
-                    <strong>${item.code}</strong> - ${item.name}
+                    <span style="display:flex; align-items:center; gap: 5px;">
+                        <strong style="color:var(--unid-gold);">${item.code}</strong> - ${item.name}
+                    </span>
+                    
+                    <span style="font-weight: 800; color: var(--unid-gold);">
+                        ${item.totalScore} pts
+                    </span>
                 </div>
+                
                 <div class="bar-wrapper">
-                    <div class="bar-fill" style="width: ${item.percentage}%">
-                        <span class="bar-value">${item.totalScore}</span>
-                    </div>
+                    <div class="bar-fill" style="width: ${item.percentage}%"></div>
                 </div>
             </div>
         `).join('');
+        
         document.getElementById('chart-injection').innerHTML = chartHTML;
     }
 

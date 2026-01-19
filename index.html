@@ -10,6 +10,14 @@
 </head>
 <body>
 
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="spinner-content">
+            <div class="spinner-large"></div>
+            <p>Analizando tus respuestas...</p>
+            <small>Por favor espera un momento</small>
+        </div>
+    </div>
+
     <div class="main-wrapper">
         
         <header class="test-header">
@@ -69,10 +77,7 @@
                 <div class="navigation-controls">
                     <button id="btnPrev" class="btn-nav hidden">Anterior</button>
                     <button id="btnNext" class="btn-nav">Siguiente</button>
-                    <button id="btnFinish" class="btn-finish hidden">
-                        <span>Finalizar Test</span>
-                        <div class="spinner" id="loadingSpinner"></div>
-                    </button>
+                    <button id="btnFinish" class="btn-finish hidden">Finalizar Test</button>
                 </div>
             </div>
         </section>
