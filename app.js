@@ -299,7 +299,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('btnFinish').addEventListener('click', finishTest);
     document.getElementById('btnPrint').addEventListener('click', () => window.print());
 
-    // 4. FINALIZAR Y RESULTADOS (CON OVERLAY)
+    // 4. FINALIZAR Y RESULTADOS (OVERLAY LOADER)
     function finishTest() {
         // Mostrar Overlay
         const overlay = document.getElementById('loadingOverlay');
@@ -309,8 +309,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const scores = calculateResults(state.answers);
         const winner = scores[0];
 
-        // Enviar a Google Sheets
-        const payload = { ...state.userData, carrera: winner.name };
+        // Enviar a Google Sheets (CON RESPUESTAS DESGLOSADAS)
+        const payload = { 
+            ...state.userData, 
+            ...state.answers, // AGREGADO: Envia q8, q9, etc.
+            carrera: winner.name 
+        };
         
         fetch(SCRIPT_URL, {
             method: 'POST',
@@ -368,7 +372,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         document.getElementById('winner-injection').innerHTML = winnerHTML;
 
-        // B) Gráfica de Barras (NUMEROS ARREGLADOS)
+        // B) Gráfica de Barras (NUMEROS FUERA DE LA BARRA)
         const chartHTML = scores.map(item => `
             <div class="chart-row">
                 <div class="chart-label">
