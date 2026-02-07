@@ -38,6 +38,7 @@ body {
 
 /* --- UTILIDADES --- */
 .hidden { display: none !important; }
+.soft-hidden { visibility: hidden !important; }
 .active { display: block !important; animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
 .text-center { text-align: center; }
 .mb-5 { margin-bottom: 3rem; }
