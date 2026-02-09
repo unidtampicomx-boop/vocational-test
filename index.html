@@ -46,7 +46,18 @@
                     <div class="form-group"><label>NOMBRE (S) *</label><input type="text" name="name" class="input-line" placeholder="Tu nombre" required></div>
                     <div class="form-group"><label>APELLIDOS *</label><input type="text" name="lastName" class="input-line" placeholder="Tus apellidos" required></div>
                     <div class="form-group"><label>CORREO ELECTRÓNICO *</label><input type="email" name="email" class="input-line" placeholder="ejemplo@correo.com" required></div>
-                    <div class="form-group"><label>TELÉFONO *</label><input type="tel" name="phone" class="input-line" placeholder="10 dígitos" required></div>
+                    
+                    <div class="form-group">
+                        <label>TELÉFONO (10 Dígitos) *</label>
+                        <input type="tel" name="phone" class="input-line" 
+                               placeholder="Ej: 8331234567" 
+                               maxlength="10" 
+                               pattern="[0-9]{10}" 
+                               title="Ingresa un número válido de 10 dígitos sin espacios ni guiones"
+                               oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                               required>
+                    </div>
+
                     <div class="form-group"><label>ESCUELA DE PROCEDENCIA *</label><input type="text" name="school" class="input-line" required></div>
                     <div class="form-group"><label>GRUPO *</label><input type="text" name="group" class="input-line" required></div>
                     
