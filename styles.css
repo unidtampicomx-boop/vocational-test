@@ -3,22 +3,17 @@
     --unid-blue-dark: #051024;
     --unid-blue-main: #002856;
     --unid-blue-light: #004e92;
-    
     --unid-gold: #ffb700;
     --unid-gold-hover: #ffcf40;
-    
     --text-white: #ffffff;
     --text-gray: #e0e0e0;
-    
     --glass-bg: rgba(255, 255, 255, 0.08);
     --glass-border: rgba(255, 255, 255, 0.15);
-    
     --font-main: 'Poppins', sans-serif;
 }
 
 body {
-    margin: 0; 
-    padding: 0;
+    margin: 0; padding: 0;
     font-family: var(--font-main);
     color: var(--text-white);
     min-height: 100vh;
@@ -27,8 +22,7 @@ body {
 }
 
 .main-wrapper {
-    display: flex; 
-    flex-direction: column;
+    display: flex; flex-direction: column;
     min-height: 100vh;
     padding: 2rem 5%;
     box-sizing: border-box;
@@ -38,77 +32,46 @@ body {
 
 /* --- UTILIDADES --- */
 .hidden { display: none !important; }
-.soft-hidden { visibility: hidden !important; }
 .active { display: block !important; animation: fadeIn 0.6s cubic-bezier(0.22, 1, 0.36, 1); }
 .text-center { text-align: center; }
 .mb-5 { margin-bottom: 3rem; }
 .mt-5 { margin-top: 3rem; }
 .mt-4 { margin-top: 1.5rem; }
 
-@keyframes fadeIn { 
-    from { opacity: 0; transform: translateY(20px); } 
-    to { opacity: 1; transform: translateY(0); } 
-}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-/* --- HEADER --- */
+/* --- HEADER (TU VERSIÓN ORIGINAL MOVIBLE) --- */
 .test-header { 
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    margin-bottom: 2rem; /* Reducido un poco */
-    padding-bottom: 1rem;
+    display: flex; justify-content: space-between; align-items: center; 
+    margin-bottom: 2rem; padding-bottom: 1rem;
     border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 .brand-title { 
-    font-weight: 800; 
-    font-size: 1.8rem; /* Ligeramente más compacto */
-    margin: 0; 
-    line-height: 1; 
-    text-transform: uppercase; 
-    letter-spacing: 1px;
-    background: linear-gradient(90deg, #fff, #ddd);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-weight: 800; font-size: 1.8rem; margin: 0; line-height: 1; 
+    text-transform: uppercase; letter-spacing: 1px;
+    background: linear-gradient(90deg, #fff, #ddd); -webkit-background-clip: text; -webkit-text-fill-color: transparent;
 }
 
 .brand-subtitle { 
-    background-color: var(--unid-gold); 
-    color: var(--unid-blue-dark); 
-    padding: 0.3rem 0.8rem; 
-    border-radius: 4px; 
-    font-weight: 700; 
-    font-size: 0.75rem; 
-    display: inline-block; 
-    margin-top: 5px;
-    letter-spacing: 1px;
+    background-color: var(--unid-gold); color: var(--unid-blue-dark); 
+    padding: 0.3rem 0.8rem; border-radius: 4px; font-weight: 700; 
+    font-size: 0.75rem; display: inline-block; margin-top: 5px; letter-spacing: 1px;
 }
 
 .unid-logo { height: 40px; }
 
 /* --- HERO --- */
-.test-hero { 
-    flex-grow: 1; 
-    display: flex; 
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    text-align: center; 
-    margin-top: 1rem;
-}
+.test-hero { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; margin-top: 1rem; }
 .test-hero h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; line-height: 1.1; text-shadow: 0 10px 30px rgba(0,0,0,0.3); }
 .test-hero p { font-size: 1.2rem; color: var(--text-gray); max-width: 600px; font-weight: 300; }
 
 /* --- BOTONES --- */
 .btn-primary-gold { 
     background: linear-gradient(135deg, var(--unid-gold) 0%, #ffaa00 100%);
-    color: var(--unid-blue-dark); 
-    font-weight: 800; 
-    padding: 1rem 3rem; 
-    font-size: 1.1rem; 
-    border: none; border-radius: 50px; 
-    cursor: pointer; text-transform: uppercase; 
-    margin-top: 25px; transition: all 0.3s ease; 
+    color: var(--unid-blue-dark); font-weight: 800; padding: 1rem 3rem; 
+    font-size: 1.1rem; border: none; border-radius: 50px; cursor: pointer; 
+    text-transform: uppercase; margin-top: 25px; transition: all 0.3s ease; 
     box-shadow: 0 10px 20px rgba(255, 183, 0, 0.3); letter-spacing: 1px;
 }
 .btn-primary-gold:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(255, 183, 0, 0.4); background: var(--unid-gold-hover); }
@@ -120,8 +83,7 @@ body {
     max-width: 800px; margin: 0 auto; width: 100%; 
     background: var(--glass-bg); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
     border: 1px solid var(--glass-border); border-radius: 20px; 
-    padding: 2.5rem; /* Padding general */
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    padding: 2.5rem; box-shadow: 0 20px 40px rgba(0,0,0,0.2);
 }
 
 .form-group { margin-bottom: 1.5rem; }
@@ -142,72 +104,38 @@ body {
 .radio-label:hover { background: rgba(255,255,255,0.15); }
 .radio-label input { accent-color: var(--unid-gold); width: 16px; height: 16px; }
 
-/* --- TEST (SECCIÓN DE PREGUNTAS AJUSTADA) --- */
+/* --- TEST --- */
 .section-header { text-align: center; margin-bottom: 30px; }
 #section-title { color: var(--unid-gold); font-size: 1.8rem; margin-bottom: 5px; }
 .section-desc { font-size: 1rem; color: var(--text-gray); }
 
-/* CORRECCIÓN 1: Más espacio entre preguntas (gap) */
-.questions-grid { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 30px; /* Antes era menos, ahora se separan más */
-    margin-bottom: 30px; 
-}
+.questions-grid { display: flex; flex-direction: column; gap: 30px; margin-bottom: 30px; }
 
-/* CORRECCIÓN 2: Tarjetas menos altas (menos padding) */
 .question-item { 
-    background: rgba(255, 255, 255, 0.05); 
-    padding: 15px 20px; /* Reducido drásticamente para que sea más "slim" */
-    border-radius: 12px; 
-    border-left: 4px solid var(--unid-gold); 
-    transition: transform 0.2s;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    background: rgba(255, 255, 255, 0.05); padding: 15px 20px; border-radius: 12px; 
+    border-left: 4px solid var(--unid-gold); display: flex; flex-direction: column; justify-content: center;
 }
 .question-item:hover { background: rgba(255, 255, 255, 0.08); }
+.question-text { font-size: 1.1rem; margin-bottom: 12px; font-weight: 500; display: block; line-height: 1.3; }
 
-.question-text { 
-    font-size: 1.1rem; 
-    margin-bottom: 12px; /* Menos espacio entre el texto y las bolitas */
-    font-weight: 500; 
-    display: block; 
-    line-height: 1.3;
-}
-
-/* Escala 0-4 */
 .scale-options { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
 .scale-label { cursor: pointer; position: relative; }
 .scale-label input { position: absolute; opacity: 0; }
 .scale-circle { 
-    width: 40px; height: 40px; /* Un poco más pequeños */
-    border-radius: 50%; 
-    border: 2px solid rgba(255,255,255,0.3); 
-    display: flex; justify-content: center; align-items: center; 
-    font-weight: bold; color: rgba(255,255,255,0.5);
-    transition: all 0.2s;
-    font-size: 0.9rem;
+    width: 40px; height: 40px; border-radius: 50%; border: 2px solid rgba(255,255,255,0.3); 
+    display: flex; justify-content: center; align-items: center; font-weight: bold; 
+    color: rgba(255,255,255,0.5); transition: all 0.2s; font-size: 0.9rem;
 }
 .scale-label input:checked ~ .scale-circle { 
-    background-color: var(--unid-gold); border-color: var(--unid-gold);
-    color: var(--unid-blue-dark); transform: scale(1.1); 
-    box-shadow: 0 0 10px rgba(255, 183, 0, 0.4);
+    background-color: var(--unid-gold); border-color: var(--unid-gold); 
+    color: var(--unid-blue-dark); transform: scale(1.1); box-shadow: 0 0 10px rgba(255, 183, 0, 0.4);
 }
 .scale-label:hover .scale-circle { border-color: var(--unid-gold); color: white; }
 
-/* Navegación */
 .navigation-controls { display: flex; justify-content: space-between; margin-top: 20px; }
-.btn-nav { 
-    background: transparent; border: 2px solid rgba(255,255,255,0.3); color: white; 
-    padding: 8px 25px; border-radius: 50px; cursor: pointer; font-weight: 600; transition: 0.3s; 
-}
+.btn-nav { background: transparent; border: 2px solid rgba(255,255,255,0.3); color: white; padding: 8px 25px; border-radius: 50px; cursor: pointer; font-weight: 600; transition: 0.3s; }
 .btn-nav:hover { border-color: var(--unid-gold); color: var(--unid-gold); }
-.btn-finish { 
-    background: #27ae60; border: none; color: white; 
-    padding: 10px 35px; border-radius: 50px; font-weight: bold; cursor: pointer; 
-    box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3);
-}
+.btn-finish { background: #27ae60; border: none; color: white; padding: 10px 35px; border-radius: 50px; font-weight: bold; cursor: pointer; box-shadow: 0 5px 15px rgba(39, 174, 96, 0.3); }
 
 /* --- RESULTADOS --- */
 .winner-card {
@@ -220,42 +148,28 @@ body {
 .winner-desc { font-size: 1.1rem; opacity: 0.8; line-height: 1.5; max-width: 600px; margin: 0 auto 20px auto; }
 .score-badge { background: var(--unid-gold); color: var(--unid-blue-dark); padding: 5px 20px; border-radius: 20px; font-weight: bold; display: inline-block; }
 
-/* Gráfica */
-.chart-section h3 { color: var(--unid-gold); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 20px; font-size: 1.2rem; }
-.chart-row { margin-bottom: 15px; }
-.chart-label { margin-bottom: 5px; font-size: 0.9rem; display: flex; justify-content: space-between; }
-.bar-wrapper { background: rgba(255,255,255,0.1); height: 10px; border-radius: 10px; overflow: hidden; }
-.bar-fill { height: 100%; background: linear-gradient(90deg, var(--unid-gold), #ff9a00); border-radius: 10px; transition: width 1s; }
-
-/* Botón Imprimir */
-.btn-print { 
-    background: transparent; border: 2px solid var(--unid-gold); color: var(--unid-gold);
-    padding: 8px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s;
+/* === COPYWRITING Y TEXTOS PERSONALIZADOS (NUEVO) === */
+.result-greeting { 
+    color: var(--unid-gold); font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: 1px; 
 }
-.btn-print:hover { background: var(--unid-gold); color: var(--unid-blue-dark); }
-
-/* --- RESPONSIVE --- */
-@media (max-width: 768px) {
-    .test-hero h1 { font-size: 2rem; }
-    .main-wrapper { padding: 1rem; }
-    .info-container, .results-container, .test-container { padding: 1.5rem; }
-    .input-line { font-size: 1rem; }
-    .questions-grid { gap: 20px; } /* En móvil un poco menos de gap */
+.result-intro { 
+    font-size: 1rem; color: #fff; opacity: 0.9; margin-bottom: 20px; line-height: 1.5; 
+}
+.result-narrative { 
+    background: rgba(0,0,0,0.2); padding: 20px; border-radius: 15px; margin: 20px 0; 
+    text-align: left; border-left: 4px solid var(--unid-gold); 
+}
+.result-narrative strong { 
+    color: var(--unid-gold); display: block; margin-bottom: 10px; font-size: 1.1rem; 
+}
+.intensity-msg { 
+    margin-top: 15px; color: #aaddff; font-style: italic; font-weight: 500; 
+}
+.small-hint { 
+    font-size: 0.9rem; opacity: 0.7; margin-bottom: 15px; 
 }
 
-/* --- FOOTER --- */
-.test-footer { 
-    margin-top: auto; 
-    display: flex; justify-content: space-between; align-items: center;
-    padding-top: 1.5rem; 
-    border-top: 1px solid rgba(255,255,255,0.05);
-    font-size: 0.8rem; color: rgba(255,255,255,0.5);
-}
-.footer-logo, .talisis-logo { height: 20px; opacity: 0.7; filter: grayscale(100%); transition: 0.3s; }
-.test-footer:hover img { filter: grayscale(0%); opacity: 1; }
-
-/* ========================================================= */
-/* === NUEVO: CORRECCIÓN LI (Estilo Etiquetas/Chips) === */
+/* === LISTA DE CARRERAS COMO CHIPS === */
 .careers-list { 
     list-style: none; padding: 0; margin: 20px 0 0 0; 
     display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; 
@@ -268,25 +182,170 @@ body {
 .careers-list li:hover { background: rgba(255,255,255,0.2); }
 .careers-list li i { color: var(--unid-gold); }
 
-/* ========================================================= */
-/* === NUEVO: LOADER BLOQUEANTE DE PANTALLA COMPLETA === */
+/* === GRÁFICA Y NÚMEROS === */
+.chart-section h3 { color: var(--unid-gold); border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; margin-bottom: 20px; font-size: 1.2rem; }
+.chart-row { margin-bottom: 15px; }
+.chart-label { margin-bottom: 5px; font-size: 0.9rem; display: flex; justify-content: space-between; align-items: flex-end; }
+.chart-label span:last-child { color: var(--unid-gold); font-weight: bold; font-size: 1.1rem; }
+.bar-wrapper { background: rgba(255,255,255,0.1); height: 10px; border-radius: 10px; overflow: hidden; }
+.bar-fill { height: 100%; background: linear-gradient(90deg, var(--unid-gold), #ff9a00); border-radius: 10px; transition: width 1s; }
+
+.btn-print { background: transparent; border: 2px solid var(--unid-gold); color: var(--unid-gold); padding: 8px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+.btn-print:hover { background: var(--unid-gold); color: var(--unid-blue-dark); }
+
+/* --- FOOTER --- */
+.test-footer { margin-top: auto; display: flex; justify-content: space-between; align-items: center; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.05); font-size: 0.8rem; color: rgba(255,255,255,0.5); }
+.footer-logo, .talisis-logo { height: 20px; opacity: 0.7; filter: grayscale(100%); transition: 0.3s; }
+.test-footer:hover img { filter: grayscale(0%); opacity: 1; }
+
+/* === LOADER BLOQUEANTE === */
 .loading-overlay {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(5, 16, 36, 0.92); /* Fondo oscuro semitransparente */
-    z-index: 9999; /* Por encima de todo */
+    background: rgba(5, 16, 36, 0.92); z-index: 9999;
     display: flex; justify-content: center; align-items: center;
     backdrop-filter: blur(5px);
 }
-
 .spinner-content { text-align: center; color: var(--unid-gold); }
-
 .spinner-large {
     width: 60px; height: 60px; margin: 0 auto 20px auto;
     border: 5px solid rgba(255, 183, 0, 0.3); border-top-color: var(--unid-gold);
     border-radius: 50%; animation: spin 1s linear infinite;
 }
-
 .spinner-content p { font-size: 1.3rem; font-weight: 700; letter-spacing: 1px; margin: 0; text-transform: uppercase; }
 .spinner-content small { color: var(--text-gray); margin-top: 10px; display: block; font-size: 0.9rem; }
-
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    .test-hero h1 { font-size: 2rem; }
+    .main-wrapper { padding: 1rem; }
+    .info-container, .results-container, .test-container { padding: 1.5rem; }
+    .input-line { font-size: 1rem; }
+    .questions-grid { gap: 20px; } 
+}
+
+/* ========================================================= */
+/* === ESTILOS ESPECÍFICOS PARA IMPRESIÓN (CTRL + P) === */
+/* ========================================================= */
+@media print {
+    /* 1. Limpieza general */
+    body {
+        background: #fff !important; /* Fondo blanco forzoso */
+        color: #000 !important; /* Texto negro */
+        font-size: 12pt; /* Tamaño legible en papel */
+    }
+
+    .main-wrapper {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* 2. Ocultar elementos innecesarios para papel */
+    .test-header, /* Ocultamos el header fijo de navegación */
+    .btn-print, 
+    .btn-text,
+    .navigation-controls,
+    .loading-overlay,
+    .test-footer { 
+        display: none !important; 
+    }
+
+    /* 3. Ajuste de Contenedores */
+    .results-container, .winner-card {
+        box-shadow: none !important;
+        border: none !important;
+        background: none !important;
+        backdrop-filter: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    /* 4. CABECERA DE IMPRESIÓN (Simulamos un membrete) */
+    .results-container::before {
+        content: "RESULTADOS TEST VOCACIONAL - UNID";
+        display: block;
+        text-align: center;
+        font-weight: 800;
+        font-size: 1.5rem;
+        color: #002856; /* Azul UNID */
+        margin-bottom: 20px;
+        border-bottom: 2px solid #002856;
+        padding-bottom: 10px;
+    }
+
+    /* 5. SOLUCIÓN DE CONTRASTE: Cambiamos Dorado por Azul Oscuro */
+    
+    /* El borde de la tarjeta principal */
+    .winner-card {
+        border: 2px solid #002856 !important; /* Azul oscuro en lugar de dorado */
+        border-radius: 10px !important;
+        padding: 20px !important;
+        margin-bottom: 20px !important;
+    }
+
+    /* Textos que eran dorados o blancos */
+    .result-greeting, 
+    .winner-title,
+    .result-narrative strong {
+        color: #002856 !important; /* Azul oscuro */
+    }
+
+    .result-intro, 
+    .winner-desc, 
+    .small-hint,
+    .chart-label span {
+        color: #333 !important; /* Gris oscuro casi negro */
+        opacity: 1 !important;
+    }
+
+    /* La caja de narrativa */
+    .result-narrative {
+        background-color: #f4f4f4 !important; /* Gris muy clarito de fondo */
+        color: #000 !important;
+        border-left: 4px solid #002856 !important; /* Borde azul */
+        padding: 15px !important;
+    }
+
+    /* Mensaje de intensidad */
+    .intensity-msg {
+        color: #444 !important;
+        font-weight: bold;
+    }
+
+    /* 6. El Badge de Puntos */
+    .score-badge {
+        background-color: #eee !important; /* Fondo gris claro */
+        color: #002856 !important; /* Letras azules */
+        border: 2px solid #002856 !important; /* Borde azul */
+    }
+
+    /* 7. Lista de Carreras (Chips) */
+    .careers-list li {
+        border: 1px solid #000 !important;
+        background: #fff !important;
+        color: #000 !important;
+    }
+    .careers-list li i {
+        color: #002856 !important; /* Icono azul */
+    }
+
+    /* 8. Gráfica de Barras */
+    .bar-wrapper {
+        background: #ddd !important; /* Fondo de barra gris claro */
+        border: 1px solid #ccc;
+    }
+    .bar-fill {
+        background: #002856 !important; /* Barra de relleno AZUL OSCURO (ahorra tinta de color) */
+        -webkit-print-color-adjust: exact; /* Fuerza la impresión del color de fondo */
+        print-color-adjust: exact;
+    }
+    
+    /* Asegurar que los puntajes se vean oscuros */
+    .chart-label span:last-child {
+        color: #000 !important;
+    }
+}

@@ -3,52 +3,52 @@ const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzpIRLXNS1zwiKZRgysf
 
 // DATA COMPLETA
 const VOCATIONAL_CATEGORIES = [
-    {
-        code: 'S.S.', name: 'Servicio Social',
+    { 
+        code: 'S.S.', name: 'Servicio Social', 
         description: 'Te interesa el bienestar de los demás, ayudar, enseñar y orientar. Tienes habilidades para la comunicación interpersonal y la empatía.',
         careers: ['Psicología', 'Enfermería', 'Educación', 'Trabajo Social', 'Medicina', 'Nutrición']
     },
-    {
-        code: 'E.P.', name: 'Ejecutivo Persuasivo',
+    { 
+        code: 'E.P.', name: 'Ejecutivo Persuasivo', 
         description: 'Te gusta liderar, organizar y convencer a los demás. Tienes iniciativa y capacidad para tomar decisiones.',
         careers: ['Administración de Empresas', 'Derecho', 'Relaciones Internacionales', 'Marketing', 'Ciencias Políticas']
     },
-    {
-        code: 'V.', name: 'Verbal',
+    { 
+        code: 'V.', name: 'Verbal', 
         description: 'Tienes facilidad para el uso de la palabra, la lectura y la escritura. Te gusta persuadir y comunicar ideas.',
         careers: ['Comunicación', 'Periodismo', 'Literatura', 'Derecho', 'Idiomas']
     },
-    {
-        code: 'A.P.', name: 'Artístico Plástico',
+    { 
+        code: 'A.P.', name: 'Artístico Plástico', 
         description: 'Te gusta crear, diseñar y expresarte a través de formas, colores y materiales. Tienes sensibilidad estética.',
         careers: ['Diseño Gráfico', 'Arquitectura', 'Artes Visuales', 'Diseño de Modas', 'Diseño de Interiores']
     },
-    {
-        code: 'Ms.', name: 'Musical',
+    { 
+        code: 'Ms.', name: 'Musical', 
         description: 'Tienes sensibilidad para los sonidos, ritmos y melodías. Disfrutas tocando instrumentos o apreciando la música.',
         careers: ['Música', 'Producción Musical', 'Ingeniería de Audio', 'Composición']
     },
-    {
-        code: 'Og.', name: 'Organización',
+    { 
+        code: 'Og.', name: 'Organización', 
         description: 'Te gusta el orden, la sistematización y el manejo de datos precisos. Eres detallista y metódico.',
         careers: ['Contaduría', 'Archivonomía', 'Informática Administrativa', 'Biblioteconomía', 'Finanzas']
     },
-    {
-        code: 'Ct.', name: 'Científico',
+    { 
+        code: 'Ct.', name: 'Científico', 
         description: 'Te gusta investigar, experimentar y entender el porqué de las cosas. Tienes curiosidad intelectual.',
         careers: ['Biología', 'Química', 'Física', 'Medicina', 'Investigación']
     },
-    {
-        code: 'Cl.', name: 'Cálculo',
+    { 
+        code: 'Cl.', name: 'Cálculo', 
         description: 'Tienes habilidad para los números y el razonamiento lógico. Te gusta resolver problemas matemáticos.',
         careers: ['Ingeniería Civil', 'Matemáticas', 'Economía', 'Actuaría', 'Estadística']
     },
-    {
-        code: 'M.C.', name: 'Mecánico Constructivo',
+    { 
+        code: 'M.C.', name: 'Mecánico Constructivo', 
         description: 'Te gusta entender cómo funcionan las máquinas y construir objetos. Tienes habilidad manual y espacial.',
         careers: ['Ingeniería Mecatrónica', 'Ingeniería Industrial', 'Ingeniería Civil', 'Arquitectura', 'Robótica']
     },
-    {
+    { 
         code: 'A.L.', name: 'Aire Libre',
         description: 'Disfrutas de las actividades en espacios abiertos, la naturaleza y el medio ambiente.',
         careers: ['Agronomía', 'Veterinaria', 'Biología Marina', 'Ecología', 'Ingeniería Ambiental']
@@ -63,7 +63,7 @@ const TEST_DATA = [
         <br><b>2</b> Me es indiferente, pues ni me gusta, ni me disgusta
         <br><b>1</b> Me desagrada algo o en parte
         <br><b>0</b> Me desagrada mucho o totalmente`,
-        questions: []
+        questions: [] 
     },
     {
         title: '¿QUÉ TANTO TE GUSTARÍA?',
@@ -209,11 +209,11 @@ const TEST_DATA = [
 const state = {
     userData: {},
     currentSectionIndex: 0,
-    answers: {}
+    answers: {} 
 };
 
 document.addEventListener('DOMContentLoaded', () => {
-
+    
     // Vistas
     const views = {
         landing: document.getElementById('view-landing'),
@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         views[viewName].classList.remove('hidden');
         views[viewName].classList.add('active');
-        window.scrollTo(0, 0);
+        window.scrollTo(0,0);
     }
 
     // 1. INICIO
@@ -248,19 +248,19 @@ document.addEventListener('DOMContentLoaded', () => {
     function loadSection(index) {
         state.currentSectionIndex = index;
         const section = TEST_DATA[index];
-
+        
         document.getElementById('section-title').innerText = section.title;
         document.getElementById('section-desc').innerHTML = section.description;
 
         const container = document.getElementById('questions-container');
-        container.innerHTML = '';
+        container.innerHTML = ''; 
 
         section.questions.forEach(q => {
             const card = document.createElement('div');
             card.className = 'question-item';
-
+            
             let optionsHTML = '';
-            for (let i = 0; i <= 4; i++) {
+            for(let i=0; i<=4; i++) {
                 const isChecked = state.answers[q.id] == i ? 'checked' : '';
                 optionsHTML += `
                     <label class="scale-label">
@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const btnFinish = document.getElementById('btnFinish');
 
         index === 0 ? btnPrev.classList.add('hidden') : btnPrev.classList.remove('hidden');
-
+        
         if (index === TEST_DATA.length - 1) {
             btnNext.classList.add('hidden');
             btnFinish.classList.remove('hidden');
@@ -290,73 +290,59 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo(0, 0);
     }
 
-    window.saveAnswer = function (qid, val) { state.answers[qid] = parseInt(val); };
+    window.saveAnswer = function(qid, val) { state.answers[qid] = parseInt(val); };
 
     document.getElementById('btnPrev').addEventListener('click', () => {
-        if (state.currentSectionIndex > 0) loadSection(state.currentSectionIndex - 1);
+        if(state.currentSectionIndex > 0) loadSection(state.currentSectionIndex - 1);
     });
 
-    // --- CORRECCIÓN AQUÍ: VALIDACIÓN AL DAR CLIC EN SIGUIENTE ---
     document.getElementById('btnNext').addEventListener('click', () => {
-
-        // 1. Obtener preguntas de la sección actual
         const currentQuestions = TEST_DATA[state.currentSectionIndex].questions;
-
-        // 2. Verificar si hay alguna pregunta sin responder en state.answers
-        // (state.answers guarda { 'q8': 3, ... }. Si no está la key, es undefined)
         const unanswered = currentQuestions.filter(q => state.answers[q.id] === undefined);
 
         if (unanswered.length > 0) {
             alert("Por favor, responde todas las preguntas antes de avanzar.");
-            return; // DETIENE LA EJECUCIÓN, NO AVANZA
+            return;
         }
 
-        // 3. Si todo ok, avanza
-        if (state.currentSectionIndex < TEST_DATA.length - 1) loadSection(state.currentSectionIndex + 1);
+        if(state.currentSectionIndex < TEST_DATA.length - 1) loadSection(state.currentSectionIndex + 1);
     });
 
     document.getElementById('btnFinish').addEventListener('click', finishTest);
     document.getElementById('btnPrint').addEventListener('click', () => window.print());
 
-    // 4. FINALIZAR Y RESULTADOS (CON VALIDACIÓN FINAL)
+    // 4. FINALIZAR Y RESULTADOS
     function finishTest() {
-
-        // --- VALIDACIÓN ÚLTIMA SECCIÓN ---
         const currentQuestions = TEST_DATA[state.currentSectionIndex].questions;
         const unanswered = currentQuestions.filter(q => state.answers[q.id] === undefined);
 
         if (unanswered.length > 0) {
             alert("Por favor, responde todas las preguntas antes de finalizar.");
-            return; // DETIENE EL ENVÍO
+            return;
         }
-        // --------------------------------
 
-        // Mostrar overlay bloqueante
         const overlay = document.getElementById('loadingOverlay');
         overlay.classList.remove('hidden');
 
-        // Calcular
         const scores = calculateResults(state.answers);
         const winner = scores[0];
 
-        // Enviar a Google Sheets
-        const payload = {
-            ...state.userData,
-            ...state.answers,
-            carrera: winner.name
+        const payload = { 
+            ...state.userData, 
+            ...state.answers, 
+            carrera: winner.name 
         };
-
+        
         fetch(SCRIPT_URL, {
             method: 'POST',
             headers: { 'Content-Type': 'text/plain;charset=utf-8' },
             body: JSON.stringify(payload)
         })
-            .finally(() => {
-                renderResults(scores, winner);
-                // Ocultar overlay
-                overlay.classList.add('hidden');
-                switchView('results');
-            });
+        .finally(() => {
+            renderResults(scores, winner);
+            overlay.classList.add('hidden');
+            switchView('results');
+        });
     }
 
     function calculateResults(answers) {
@@ -367,33 +353,56 @@ document.addEventListener('DOMContentLoaded', () => {
         for (const [qid, val] of Object.entries(answers)) {
             const qNum = parseInt(qid.replace('q', ''), 10);
             if (isNaN(qNum)) continue;
-
-            const catIndex = (qNum - 8) % 10; // Algoritmo Base 10
+            
+            const catIndex = (qNum - 8) % 10; 
             if (catIndex >= 0 && catIndex <= 9) {
                 scores[catIndex].totalScore += val;
             }
         }
 
-        // Calcular porcentajes (Max score aprox 48 puntos)
         scores.forEach(c => c.percentage = Math.round((c.totalScore / 48) * 100));
-
+        
         return scores.sort((a, b) => b.totalScore - a.totalScore);
     }
 
-    // 5. RENDERIZADO HTML DE RESULTADOS
+    // 5. RENDERIZADO HTML (COPYWRITING MEJORADO)
     function renderResults(scores, winner) {
+        
+        // 1. Extraer nombre
+        const firstName = state.userData.name ? state.userData.name.trim().split(' ')[0] : 'Futuro Universitario';
+        
+        // 2. Mensaje de intensidad
+        let intensityMessage = "";
+        if (winner.totalScore >= 40) {
+            intensityMessage = "¡Tus respuestas indican una pasión muy clara y un talento natural en este campo!";
+        } else if (winner.totalScore >= 25) {
+            intensityMessage = "Tienes una inclinación muy fuerte hacia estas actividades, lo que sugiere un gran potencial de éxito.";
+        } else {
+            intensityMessage = "Tus intereses son variados, pero esta es el área donde muestras mayor afinidad en este momento.";
+        }
 
-        // A) Tarjeta Ganador
         const winnerHTML = `
             <div class="winner-card">
                 <div class="icon-trophy">🏆</div>
-                <h3>TU ÁREA PREDOMINANTE ES:</h3>
+                
+                <h3 class="result-greeting">¡HOLA, ${firstName.toUpperCase()}!</h3>
+                <p class="result-intro">
+                    Hemos analizado tu perfil y los resultados son emocionantes.<br>
+                    Tu camino ideal parece estar en el área de:
+                </p>
+
                 <h2 class="winner-title">${winner.name}</h2>
-                <p class="winner-desc">${winner.description}</p>
                 <div class="score-badge mb-4">${winner.totalScore} Puntos</div>
+
+                <div class="result-narrative">
+                    <p><strong>¿Qué significa esto para ti?</strong></p>
+                    <p class="winner-desc">${winner.description}</p>
+                    <p class="intensity-msg"><em>"${intensityMessage}"</em></p>
+                </div>
                 
                 <div class="careers-suggestion mt-4">
-                    <h4>🎓 Carreras Sugeridas para ti:</h4>
+                    <h4>🎓 Carreras en UNID perfectas para tu perfil:</h4>
+                    <p class="small-hint">Basado en tus fortalezas, podrías brillar en:</p>
                     <ul class="careers-list">
                         ${winner.careers.map(c => `<li><i class="bi bi-check-circle-fill"></i> ${c}</li>`).join('')}
                     </ul>
@@ -402,26 +411,22 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         document.getElementById('winner-injection').innerHTML = winnerHTML;
 
-        // B) Gráfica de Barras
         const chartHTML = scores.map(item => `
             <div class="chart-row">
                 <div class="chart-label">
                     <span style="display:flex; align-items:center; gap: 5px;">
                         <strong style="color:var(--unid-gold);">${item.code}</strong> - ${item.name}
                     </span>
-                    
                     <span style="font-weight: 800; color: var(--unid-gold);">
                         ${item.totalScore} pts
                     </span>
                 </div>
-                
                 <div class="bar-wrapper">
                     <div class="bar-fill" style="width: ${item.percentage}%"></div>
                 </div>
             </div>
         `).join('');
-
+        
         document.getElementById('chart-injection').innerHTML = chartHTML;
     }
-
 });
