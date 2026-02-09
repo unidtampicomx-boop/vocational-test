@@ -296,37 +296,50 @@ document.addEventListener('DOMContentLoaded', () => {
         if(state.currentSectionIndex > 0) loadSection(state.currentSectionIndex - 1);
     });
 
+    // --- CORRECCIÓN: VALIDACIÓN ACTIVADA AL DAR CLICK EN SIGUIENTE ---
     document.getElementById('btnNext').addEventListener('click', () => {
+        
+        // 1. Obtener preguntas de la sección actual
         const currentQuestions = TEST_DATA[state.currentSectionIndex].questions;
+        
+        // 2. Verificar si hay alguna pregunta sin responder
+        // (state.answers guarda las respuestas. Si no existe la clave 'qX', es undefined)
         const unanswered = currentQuestions.filter(q => state.answers[q.id] === undefined);
 
         if (unanswered.length > 0) {
             alert("Por favor, responde todas las preguntas antes de avanzar.");
-            return;
+            return; // DETIENE EL AVANCE
         }
 
+        // 3. Si todo ok, avanza
         if(state.currentSectionIndex < TEST_DATA.length - 1) loadSection(state.currentSectionIndex + 1);
     });
 
     document.getElementById('btnFinish').addEventListener('click', finishTest);
     document.getElementById('btnPrint').addEventListener('click', () => window.print());
 
-    // 4. FINALIZAR Y RESULTADOS
+    // 4. FINALIZAR Y RESULTADOS (CON VALIDACIÓN Y LOADER)
     function finishTest() {
+        
+        // --- VALIDACIÓN DE LA ÚLTIMA SECCIÓN ---
         const currentQuestions = TEST_DATA[state.currentSectionIndex].questions;
         const unanswered = currentQuestions.filter(q => state.answers[q.id] === undefined);
 
         if (unanswered.length > 0) {
             alert("Por favor, responde todas las preguntas antes de finalizar.");
-            return;
+            return; // DETIENE EL ENVÍO
         }
+        // ---------------------------------------
 
+        // Mostrar Overlay de carga
         const overlay = document.getElementById('loadingOverlay');
         overlay.classList.remove('hidden');
 
+        // Calcular
         const scores = calculateResults(state.answers);
         const winner = scores[0];
 
+        // Enviar a Google Sheets
         const payload = { 
             ...state.userData, 
             ...state.answers, 
@@ -340,6 +353,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .finally(() => {
             renderResults(scores, winner);
+            // Ocultar overlay
             overlay.classList.add('hidden');
             switchView('results');
         });
@@ -354,18 +368,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const qNum = parseInt(qid.replace('q', ''), 10);
             if (isNaN(qNum)) continue;
             
-            const catIndex = (qNum - 8) % 10; 
+            const catIndex = (qNum - 8) % 10; // Algoritmo Base 10
             if (catIndex >= 0 && catIndex <= 9) {
                 scores[catIndex].totalScore += val;
             }
         }
 
+        // Calcular porcentajes
         scores.forEach(c => c.percentage = Math.round((c.totalScore / 48) * 100));
         
         return scores.sort((a, b) => b.totalScore - a.totalScore);
     }
 
-    // 5. RENDERIZADO HTML (COPYWRITING MEJORADO)
+    // 5. RENDERIZADO HTML (COPYWRITING PERSONALIZADO Y ETIQUETAS)
     function renderResults(scores, winner) {
         
         // 1. Extraer nombre
