@@ -416,7 +416,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 
                 <div class="careers-suggestion mt-4">
-                    <h4>🎓 Carreras en UNID perfectas para tu perfil:</h4>
+                    <h4>🎓 Carreras perfectas para tu perfil:</h4>
                     <p class="small-hint">Basado en tus fortalezas, podrías brillar en:</p>
                     <ul class="careers-list">
                         ${winner.careers.map(c => `<li><i class="bi bi-check-circle-fill"></i> ${c}</li>`).join('')}
